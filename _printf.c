@@ -9,7 +9,7 @@ void print_buffer(char buffer[], int *buff_ind);
  */
 int _printf(const char *format, ...)
 {
-	int format_index, printed = 0, printed_chars = 0;
+	int n, printed = 0, printed_chars = 0;
 	int flags, width, precision, size, buff_ind = 0;
 	va_list list;
 	char buffer[BUFF_SIZE];
@@ -19,11 +19,11 @@ int _printf(const char *format, ...)
 
 	va_start(list, format);
 
-	for (format_index = 0; format && format[format_index] != '\0'; format_index++)
+	for (n = 0; format && format[n] != '\0'; n++)
 	{
-		if (format[format_index] != '%')
+		if (format[n] != '%')
 		{
-			buffer[buff_ind++] = format[format_index];
+			buffer[buff_ind++] = format[n];
 			if (buff_ind == BUFF_SIZE)
 				print_buffer(buffer, &buff_ind);
 			/* write(1, &format[i], 1);*/
@@ -32,12 +32,12 @@ int _printf(const char *format, ...)
 		else
 		{
 			print_buffer(buffer, &buff_ind);
-			flags = get_flags(format, &format_index);
-			width = get_width(format, &format_index, list);
-			precision = get_precision(format, &format_index, list);
-			size = get_size(format, &format_index);
-			++format_index;
-			printed = handle_print(format, &format_index, list, buffer,
+			flags = get_flags(format, n);
+			width = get_width(format, n, list);
+			precision = get_precision(format, &n, list);
+			size = get_size(format, &n);
+			++n;
+			printed = handle_print(format, &n, list, buffer,
 				flags, width, precision, size);
 			if (printed == -1)
 				return (-1);
@@ -55,7 +55,7 @@ int _printf(const char *format, ...)
 /**
  * print_buffer this is where we- Print the contents of the buffer if it exist
  * @buffer: Array of characters
- * @buff_ind: Index at which to add next characters which, represents the length thereof.
+ * @buff_ind: Index at which to add next characters which, represents the len.
  */
 void print_buffer(char buffer[], int *buff_ind)
 {
