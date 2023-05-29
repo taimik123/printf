@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * get_precision -the code for Calculateing the precision for printing
+ * @get_precision -the code for Calculateing the precision for printing
  * @format: code for Formatted string in which to print the arguments
  * @k: this is a List of arguments to be printed.
  * @list1: code forlist of arguments.
@@ -10,7 +10,7 @@
  */
 int get_precision(const char *format, int *k, va_list list1)
 {
-	int curr_k = ki + 1;
+	int curr_k = *k + 1;
 	int precision = -1;
 
 	if (format[curr_k] != '.')
