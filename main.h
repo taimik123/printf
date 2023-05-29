@@ -40,7 +40,7 @@ struct fmt112
 typedef struct fmt112 fmt_t112;
 
 int _printf(const char *format, ...);
-int handle_print(const char *fmt112, int *n,
+int handle_print(const char *fmt112, int *x,
 va_list list, char buffer[], int flags, int width, int precision, int size);
 
 /****************** FUNCTIONS ******************/
@@ -79,10 +79,10 @@ int print_pointer(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 
 /* Functions used  to handle other specifiers */
-int get_flags(const char *format, int *n);
-int get_width(const char *format, int *n, va_list list);
-int get_precision(const char *format, int *n, va_list list);
-int get_size(const char *format, int *n);
+int get_flags(const char *format, int *x);
+int get_width(const char *format, int *x, va_list list);
+int get_precision(const char *format, int *x, va_list list);
+int get_size(const char *format, int *x);
 
 /*see the function used to print string in reverse*/
 int print_reverse(va_list types, char buffer[],
@@ -93,7 +93,7 @@ int print_rot13string(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 
 /* function to be used in the width handler */
-int handle_write_char(char c, char buffer[],
+int handle_write_char(char char1, char buffer[],
 	int flags, int width, int precision, int size);
 int write_number(int is_positive, int ind, char buffer[],
 	int flags, int width, int precision, int size);
