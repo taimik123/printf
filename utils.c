@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * is_printable - Determines if a character is printable
+ * is_printable - kode Determines if a character is printable
  * @c1: the char to be evaluated.
  *
  * Return: 1 if char is printable, 0 otherwise
@@ -15,8 +15,8 @@ int is_printable(char c1)
 }
 
 /**
- * append_hexa_code - Append ASCII in hexadecimal code to buffer
- * @buffer: Array of characters
+ * append_hexa_code - kode to Append ASCII in hexadecimal code to buffer
+ * @buffer: code forArray of characters
  * @k: Index at which to start appending
  * @ascii_code1: the ASSCI CODE.
  * Return: Always 3
