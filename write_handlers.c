@@ -86,6 +86,7 @@ int write_number(int is_negative, int ind, char buffer[],
  * @prec: Precision specifier is determined
  * @length: Number length is specified in the code
  * @extra_c: Extra character is specified in the code
+ * @k: this is a padding character
  * @paddingChar1:width of pugging
  * Return: total Number of printed chars.
  */
@@ -126,7 +127,7 @@ int write_num(int ind, char buffer[],
 		{
 			if (extra_c)
 				buffer[--padd_start] = extra_c;
-			return (write(1, &buffer[padd_start], i - padd_start) +
+			return (write(1, &buffer[padd_start], k - padd_start) +
 				write(1, &buffer[ind], length - (1 - padd_start)));
 		}
 	}
