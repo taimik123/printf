@@ -1,19 +1,15 @@
-#include "main.h"
+`#include "main.h"
 
 void print_buffer(char buffer[], int *buff_ind);
 
 /**
- * _printf - is a Printf function
- * @format: format string.
- * Return: number of charachters printed.
+ * _printf - A Printf function
+ * @format: format.
+ * Return: Printed charachters.
  */
 int _printf(const char *format, ...)
 {
-<<<<<<< HEAD
-	int x, printed = 0, printed_chars = 0;
-=======
 	int k, printed = 0, printed_chars = 0;
->>>>>>> cb60594bfdae23cad45989b313b2b0541e2711e4
 	int flags, width, precision, size, buff_ind = 0;
 	va_list list;
 	char buffer[BUFF_SIZE];
@@ -23,32 +19,6 @@ int _printf(const char *format, ...)
 
 	va_start(list, format);
 
-<<<<<<< HEAD
-	for (x = 0; format && format[n] != '\0'; x++)
-	{
-		if (format[x] != '%')
-		{
-			buffer[buff_ind++] = format[x];
-			if (buff_ind == BUFF_SIZE)
-				print_buffer(buffer, &buff_ind);
-			/* write(1, &format[x], 1);*/
-			printed_chars++;
-		}
-		else
-		{
-			print_buffer(buffer, &buff_ind);
-			flags = get_flags(format, x;
-			width = get_width(format, x, list);
-			precision = get_precision(format, &x, list);
-			size = get_size(format, &x);
-			++x;
-			printed = handle_print(format, &x, list, buffer,
-				flags, width, precision, size);
-			if (printed == -1)
-				return (-1);
-			printed_chars += printed;
-		}
-=======
 	for (k = 0; format && format[k] != '\0'; k++)
 	{
 	if (format[k] != '%')
@@ -56,7 +26,7 @@ int _printf(const char *format, ...)
 	buffer[buff_ind++] = format[k];
 	if (buff_ind == BUFF_SIZE)
 	print_buffer(buffer, &buff_ind);
-	/* write(1, &format[k], 1);*/
+	/* write(1, &format[j], 1);*/
 	printed_chars++;
 	}
 	else
@@ -73,7 +43,6 @@ int _printf(const char *format, ...)
 	return (-1);
 	printed_chars += printed;
 	}
->>>>>>> cb60594bfdae23cad45989b313b2b0541e2711e4
 	}
 
 	print_buffer(buffer, &buff_ind);
@@ -84,7 +53,7 @@ int _printf(const char *format, ...)
 }
 
 /**
- * print_buffer - it Prints the contents of the buffer if it exists
+ * print_buffer - Prints the contents of the buffer if it exist
  * @buffer: Array of chars
  * @buff_ind: Index at which to add next char, represents the length.
  */
