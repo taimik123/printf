@@ -15,18 +15,18 @@ int handle_print(const char *fmt112, int *ind, va_list list, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	int k, unknow_len = 0, printed_chars = -1;
-	fmt_t fmt112_types[] = {
+	fmt_t112 fmt112_types[] = {
 		{'c', print_char}, {'s', print_string}, {'%', print_percent},
 		{'i', print_int}, {'d', print_int}, {'b', print_binary},
 		{'u', print_unsigned}, {'o', print_octal}, {'x', print_hexadecimal},
 		{'X', print_hexa_upper}, {'p', print_pointer}, {'S', print_non_printable},
 		{'r', print_reverse}, {'R', print_rot13string}, {'\0', NULL}
 	};
-	for (k = 0; fmt_types[k].fmt112 != '\0'; k++)
-		if (fmt112[*ind] == fmt_types[i].fmt112)
-			return (fmt_types[k].fn112(list, buffer, flags, width, precision, size));
+	for (k = 0; fmt112_types[k].fmt112 != '\0'; k++)
+		if (fmt112[*ind] == fmt112_types[k].fmt112)
+			return (fmt112_types[k].fn112(list, buffer, flags, width, precision, size));
 
-	if (fmt_types[k].fmt112 == '\0')
+	if (fmt112_types[k].fmt112 == '\0')
 	{
 		if (fmt112[*ind] == '\0')
 			return (-1);
